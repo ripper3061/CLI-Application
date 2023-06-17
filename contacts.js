@@ -62,8 +62,6 @@ const listContacts = async () => {
     }
   };
   
-  
-  
   module.exports = {
     listContacts,
     getContactById,
