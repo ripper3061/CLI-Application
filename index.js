@@ -35,14 +35,14 @@ const argv = program.opts();
   
       case "add":
         console.log("invoke add contact");
-        const newContacts = await addContact(name, email, phone);
-        console.log(newContacts);
+        const newContact = await addContact(name, email, phone);
+        console.log(newContact);
         break;
   
       case "remove":
         console.log("invoke remove contact");
-        const clearContacts = await removeContact(id);
-        console.log(clearContacts);
+        const removedContactById = await removeContact(id);
+        console.log(removedContactById);
         break;
   
       default:
