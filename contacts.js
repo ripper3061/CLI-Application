@@ -11,7 +11,6 @@ const readContactsFile = async () => {
       console.log(error);
     }
   };
-
   
 const listContacts = async () => {
     try {
@@ -52,12 +51,12 @@ const listContacts = async () => {
       const parsedContacts = await readContactsFile();
       const index = parsedContacts.findIndex( (contact) => contact.id === String(contactId))
       if(index === -1) return null;
-      const [result] = parsedContacts.splice(index, 1)
-      const filteredContact = parsedContacts.filter(
+      const [removedContact] = parsedContacts.splice(index, 1);
+      const filteredContacts = parsedContacts.filter(
         (contact) => contact.id !== String(contactId)
       );
-      await fs.writeFile(contactPath, JSON.stringify(filteredContact, null, 2));
-      return result;
+      await fs.writeFile(contactPath, JSON.stringify(filteredContacts, null, 2));
+      return removedContact;
     } catch (error) {
       console.log(error);
     }
